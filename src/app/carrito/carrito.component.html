@@ -1,0 +1,21 @@
+<h3>Carrito</h3>
+
+<div class="cart-item" *ngFor="let item of items">
+    <span>{{item.name}}</span>
+    <span>{{item.price}}</span>
+</div>
+
+<form [formGroup]="formularioCheckout" (ngSubmit)="finalizarCompra()">
+    <div>
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre">
+    </div>
+
+    <div>
+        <label>Direccion</label>
+        <input type="text" formControlName="direccion">
+    </div>
+
+    <button type="submit"> Finalizar </button>
+
+</form>

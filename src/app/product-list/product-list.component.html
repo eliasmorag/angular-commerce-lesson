@@ -1,0 +1,46 @@
+<h2>Productos</h2>
+
+
+
+
+
+
+
+<div *ngFor="let p of products">
+    <h3>
+        <a [title]="'Ver detalles'" [routerLink]="['/detalle', p.id]">
+            {{p.name}}
+        </a>
+    </h3>
+
+    <p>{{p.description}}</p>
+
+    <button type="button">Compartir</button>
+
+    <!-- 
+        Para los inputs, 
+        lo que está entre [] es el nombre del atributo EN EL HIJO que queremos setear
+        lo que está después del = es el valor que queremos pasar DESDE EL PADRE 
+    -->
+
+    <!-- 
+        Para los outputs, 
+        lo que está entre () es el nombre del evento EN EL HIJO al que vamos a reaccionar
+        lo que está después del = es la función que queremos llamar EN EL PADRE al recibir el evento 
+    -->
+
+    <app-boton-notificar [producto]="p" (notificacion)="alertarNotificacion()">
+    </app-boton-notificar>
+
+
+</div>
+
+
+
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

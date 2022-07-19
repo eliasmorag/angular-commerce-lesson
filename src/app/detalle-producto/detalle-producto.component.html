@@ -1,0 +1,22 @@
+<p>Detalle del producto id: {{idProducto}}</p>
+
+
+
+<!-- SOLO INTENTA MOSTRAR SI producto 
+ESTA DEFINIDO -->
+<div *ngIf="producto">
+
+    <h2>
+        {{producto.name}}
+    </h2>
+
+    <img [src]="producto.imageUrl">
+
+    <h3>{{producto.price}}</h3>
+
+
+    <p>{{producto.description}}</p>
+
+    <button type="button" (click)="comprarProducto(producto)">Comprar</button>
+
+</div>
