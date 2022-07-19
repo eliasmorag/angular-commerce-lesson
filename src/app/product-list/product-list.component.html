@@ -1,39 +1,49 @@
 <h2>Productos</h2>
 
+<div class="products-grid">
+
+    <div class="product-container" *ngFor="let p of products">
+
+        <h3>
+            <a [title]="'Ver detalles'" [routerLink]="['/detalle', p.id]">
+                {{p.name}}
+            </a>
+        </h3>
+
+        <div class="img-container">
+            <img *ngIf="p.imageUrl; else noImage" [src]="p.imageUrl">
+        </div>
+
+        <p>{{p.description}}</p>
+
+        <div class="botones-container">
 
 
+            <button type="button">Compartir</button>
 
+            <!-- 
+                Para los inputs, 
+                lo que está entre [] es el nombre del atributo EN EL HIJO que queremos setear
+                lo que está después del = es el valor que queremos pasar DESDE EL PADRE 
+            -->
 
+            <!-- 
+                Para los outputs, 
+                lo que está entre () es el nombre del evento EN EL HIJO al que vamos a reaccionar
+                lo que está después del = es la función que queremos llamar EN EL PADRE al recibir el evento 
+            -->
 
+            <app-boton-notificar [producto]="p" (notificacion)="alertarNotificacion()"> </app-boton-notificar>
 
-<div *ngFor="let p of products">
-    <h3>
-        <a [title]="'Ver detalles'" [routerLink]="['/detalle', p.id]">
-            {{p.name}}
-        </a>
-    </h3>
+        </div>
 
-    <p>{{p.description}}</p>
-
-    <button type="button">Compartir</button>
-
-    <!-- 
-        Para los inputs, 
-        lo que está entre [] es el nombre del atributo EN EL HIJO que queremos setear
-        lo que está después del = es el valor que queremos pasar DESDE EL PADRE 
-    -->
-
-    <!-- 
-        Para los outputs, 
-        lo que está entre () es el nombre del evento EN EL HIJO al que vamos a reaccionar
-        lo que está después del = es la función que queremos llamar EN EL PADRE al recibir el evento 
-    -->
-
-    <app-boton-notificar [producto]="p" (notificacion)="alertarNotificacion()">
-    </app-boton-notificar>
-
+    </div>
 
 </div>
+
+<ng-template #noImage>
+    <img src="/assets/images/no-image.png">
+</ng-template>
 
 
 
