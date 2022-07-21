@@ -1,8 +1,9 @@
 <h2>Productos</h2>
 
-<div class="products-grid">
+<!-- LA FILA TIENE EN TOTAL 12 UNIDADES -->
+<div class="row">
 
-    <div class="product-container" *ngFor="let p of products">
+    <div class="card col-3 mt-5" *ngFor="let p of products">
 
         <h3>
             <a [title]="'Ver detalles'" [routerLink]="['/detalle', p.id]">
@@ -10,13 +11,13 @@
             </a>
         </h3>
 
-        <div class="img-container">
+        <div>
             <img *ngIf="p.imageUrl; else noImage" [src]="p.imageUrl">
         </div>
 
         <p>{{p.description}}</p>
 
-        <div class="botones-container">
+        <div class="d-flex justify-content-between">
 
 
             <button type="button">Compartir</button>

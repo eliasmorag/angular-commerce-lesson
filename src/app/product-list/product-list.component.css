@@ -1,21 +1,4 @@
-:host {
-  width: 100%;
-}
 
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 25px;
-  row-gap: 15px;
-}
-
-.product-container {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 20px;
-}
 
 img {
   height: 100px;
@@ -25,11 +8,6 @@ img {
   margin-right: auto;
 }
 
-.botones-container {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-}
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
