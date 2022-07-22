@@ -10,6 +10,9 @@ import { BotonCompartirComponent } from './boton-compartir/boton-compartir.compo
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarritoComponent } from './carrito/carrito.component';
+import { LoginComponent } from './login/login.component';
+import {AuthGuard} from "./auth.guard";
+import { FormularioProductoComponent } from './formulario-producto/formulario-producto.component';
 
 @NgModule({
   imports: [
@@ -22,7 +25,10 @@ import { CarritoComponent } from './carrito/carrito.component';
       { path: '', redirectTo: 'productos', pathMatch: 'full'},
       { path: 'productos', component: ProductListComponent },
       { path: 'detalle/:idProducto', component: DetalleProductoComponent },
-      { path: 'carrito', component: CarritoComponent },
+      { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard] },
+      { path: 'login', component: LoginComponent },
+      { path: 'formulario', component: FormularioProductoComponent },
+      { path: 'formulario/:idProducto', component: FormularioProductoComponent },
     ])
 
     
@@ -33,7 +39,9 @@ import { CarritoComponent } from './carrito/carrito.component';
     ProductListComponent,
     BotonCompartirComponent,
     DetalleProductoComponent,
-    CarritoComponent
+    CarritoComponent,
+    LoginComponent,
+    FormularioProductoComponent
   ],
   bootstrap: [
     AppComponent

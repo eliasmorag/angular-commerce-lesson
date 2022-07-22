@@ -25,6 +25,8 @@ export class CarritoComponent implements OnInit {
   ) { } // inyecto el service
 
   ngOnInit(): void {
+    console.log('CarritoComponent onInit');
+
     this.items = this.carrito.obtenerItems();
   }
 

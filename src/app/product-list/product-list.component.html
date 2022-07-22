@@ -1,9 +1,13 @@
 <h2>Productos</h2>
 
+<a [title]="'Nuevo producto'" [routerLink]="['/formulario']">
+    Nuevo Producto
+</a>
+
 <!-- LA FILA TIENE EN TOTAL 12 UNIDADES -->
 <div class="row">
 
-    <div class="card col-3 mt-5" *ngFor="let p of products">
+    <div class="card col-4 mt-5" *ngFor="let p of products">
 
         <h3>
             <a [title]="'Ver detalles'" [routerLink]="['/detalle', p.id]">
